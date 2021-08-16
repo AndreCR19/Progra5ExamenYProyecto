@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Lista Vista Administrador</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h1>Cuartos </h1>
+  <ion-list>
+    <ion-title [routerLink]="['./', habitaciones[0].id]"> Cuarto</ion-title>
+    <div *ngFor="let habitacion of habitaciones" [routerLink]="['./', habitacion.id]">
+      <ion-item> {{habitacion.id}}
+        <ion-text> {{habitacion.title}} </ion-text>
+        <ion-text> {{habitacion.price}} </ion-text>
+        <ion-text> {{habitacion.descrip}} </ion-text>
+        <ion-text> {{habitacion.price}} </ion-text>
+        <ion-text> {{habitacion.status}} </ion-text>
+      </ion-item>
+    </div>
+  </ion-list>
+</ion-content>

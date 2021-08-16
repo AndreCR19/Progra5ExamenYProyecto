@@ -8,8 +8,31 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'admin',
     pathMatch: 'full'
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'admin',
+    children: [
+      {
+        path: "",
+        loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
+      },
+      {
+        path: ":habiID",
+        loadChildren: () => import('./admin/editar/editar.module').then(
+          m => m.EditarPageModule
+        )
+      }
+    ]
+  },
+  {
+    path: 'usuario',
+    loadChildren: () => import('./usuario/usuario.module').then( m => m.UsuarioPageModule)
   },
 ];
 
