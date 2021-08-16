@@ -24,7 +24,6 @@ export class PrincipalService {
       perRoom: 3
     }
   ];
-
   private reservaciones: Reservacion[] = [
     {
       id: '1000001',
@@ -41,5 +40,18 @@ export class PrincipalService {
     return {...this.habitaciones.find(
       habitacion => habiID === habitacion.id
     )};
+  }
+  addHabitacion(id: string, title: string, descrip: string, price: number, status: boolean, perRoom: number){
+    id = Math.random().toString();
+    const newHabi = new Habitacion(
+      id,
+      title,
+      descrip,
+      price,
+      status,
+      perRoom
+    );
+    this.habitaciones.push(newHabi);
+    console.log(this.habitaciones);
   }
 }

@@ -1,0 +1,90 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title> Agregar un nuevo cuarto al sistema</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="addFunction()">
+        <ion-icon name="checkmark" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <ion-title>Hola</ion-title>
+    <div>
+      <ion-title> I hope this works </ion-title>
+      <div>
+        <ion-title> PQ si no me pego un tiro</ion-title>
+      </div>
+    </div>
+  </div>
+  <form [formGroup]="formExample">
+    <ion-grid>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Id</ion-label>
+            <ion-input type="text" autocomplete autocorrect formControlName="id"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label>Title</ion-label>
+            <ion-input type="text" autocomplete autocorrect formControlName="title"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label>Description</ion-label>
+            <ion-textarea row="3" formControlName="descrip"></ion-textarea>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label>Precio por dia</ion-label>
+            <ion-input type="text" autocomplete autocorrect formControlName="price"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label>Estado</ion-label>
+            <ion-input type="text" autocomplete autocorrect formControlName="Status"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label>Personas por habitacion</ion-label>
+            <ion-input type="text" autocomplete autocorrect formControlName="perRoom"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="!formExample.get('descrip').valid &&
+                      formExample.get('descrip').touched">
+        <ion-col  size-sm="6" offset-sm="3">
+          <p>La descripcion debe de ser menor a 180 caracteres</p>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="
+        !formExample.get('descrip').valid &&
+        !formExample.get('id').valid &&
+        !formExample.get('title').valid &&
+        !formExample.get('price').valid
+      ">
+        <ion-col  size-sm="6" offset-sm="3">
+          <p>Todos los campos son requeridos</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

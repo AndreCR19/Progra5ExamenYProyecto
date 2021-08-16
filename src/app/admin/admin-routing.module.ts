@@ -11,6 +11,10 @@ const routes: Routes = [
   {
     path: 'editar',
     loadChildren: () => import('./editar/editar.module').then( m => m.EditarPageModule)
+  },
+  {
+    path: 'agregar',
+    loadChildren: () => import('./agregar/agregar.module').then( m => m.AgregarPageModule)
   }
 ];
 
