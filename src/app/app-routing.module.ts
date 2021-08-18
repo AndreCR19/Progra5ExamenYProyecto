@@ -27,6 +27,12 @@ const routes: Routes = [
         loadChildren: () => import('./admin/editar/editar.module').then(
           m => m.EditarPageModule
         )
+      },
+      {
+        path: "agregar",
+        loadChildren: () => import('./admin/agregar/agregar.module').then(
+          m => m.AgregarPageModule
+        )
       }
     ]
   },
