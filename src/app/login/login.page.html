@@ -5,5 +5,21 @@
 </ion-header>
 
 <ion-content>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+    <ion-item>
+      <ion-label position="floating">Username</ion-label>
+      <ion-input formControlName="user" type="text"></ion-input>
+    </ion-item>
 
+    <ion-item>
+      <ion-label position="floating">password</ion-label>
+      <ion-input formControlName="pass" type="text"></ion-input>
+    </ion-item>
+
+    <ion-row>
+      <ion-col>
+        <ion-button type='submit' color="danger" expand="block"> Submit</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
 </ion-content>

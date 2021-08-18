@@ -19,17 +19,17 @@ const routes: Routes = [
     path: 'admin',
     children: [
       {
-        path: "",
+        path: '',
         loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
       },
       {
-        path: ":habiID",
+        path: ':habiID',
         loadChildren: () => import('./admin/editar/editar.module').then(
           m => m.EditarPageModule
         )
       },
       {
-        path: "agregar",
+        path: 'agregar',
         loadChildren: () => import('./admin/agregar/agregar.module').then(
           m => m.AgregarPageModule
         )

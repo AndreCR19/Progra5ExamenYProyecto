@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PrincipalService } from 'src/app/app.service';
 
@@ -9,23 +9,31 @@ import { PrincipalService } from 'src/app/app.service';
   styleUrls: ['./agregar.page.scss'],
 })
 export class AgregarPage implements OnInit {
-  formEjemplo = new FormGroup({
-    id: new FormControl(''),
-    title: new FormControl(''),
-    descrip: new FormControl(''),
-    price: new FormControl(''),
-    status: new FormControl(''),
-    perRoom: new FormControl(''),
-  });
+  formEjemplo: FormGroup;
+  submitted = false;
 
   constructor(
     private productService: PrincipalService,
-    private router: Router
+    private router: Router,
+    public formBuilder: FormBuilder
   ) { }
 
   ngOnInit() {
+/*     this.loginForm =this.formBuilder.group({
+      user: ['', [Validators.required, Validators.minLength(3)]],
+      pass: ['', [Validators.required, Validators.minLength(3)]]
+ */
+    this.formEjemplo = this.formBuilder.group({
+      id: ['', [Validators.required, Validators.minLength(3)]],
+      title: ['', [Validators.required, Validators.minLength(3)]],
+      descrip: ['', [Validators.required, Validators.minLength(3)]],
+      price: ['', [Validators.required, Validators.minLength(3)]],
+      status: ['', [Validators.required, Validators.minLength(3)]],
+      perRoom: ['', [Validators.required, Validators.minLength(3)]]
+    });
   }
   addFunction(){
+    this.submitted = true;
     if(!this.formEjemplo.valid){
       return;
     }
