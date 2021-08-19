@@ -1,34 +1,30 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title> Agregar un nuevo cuarto al sistema</ion-title>
-    <ion-buttons slot="primary">
-      <ion-buttons slot="start">
-        <ion-back-button defaultHref="/admin"></ion-back-button>
-      </ion-buttons>
-      <ion-button (click)="addFunction()">
-        <ion-icon name="checkmark" slot="icon-only"></ion-icon>
-      </ion-button>
+    <ion-title>Editar habitacion {{habitacion.title}}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/admin"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <form [formGroup]="formEjemplo" (ngSubmit)="addFunction()" novalidate>
+  <form [formGroup]="formEdit" (ngSubmit)="editFunction()" novalidate>
     <ion-item lines="full">
       <ion-label position="floating">Id</ion-label>
-      <ion-input formControlName="id" type="text" autocomplete autocorrect ></ion-input>
+      <ion-input formControlName="id" type="text" autocomplete autocorrect >{{habitacion.id}}</ion-input>
     </ion-item>
     <ion-item lines="full">
       <ion-label position="floating">Titulo</ion-label>
-      <ion-input formControlName="title" type="text" autocomplete autocorrect ></ion-input>
+      <ion-input formControlName="title" type="text" autocomplete autocorrect > {{habitacion.title}}</ion-input>
     </ion-item>
+
     <ion-item lines="full">
       <ion-label position="floating">Descripcion</ion-label>
-      <ion-input formControlName="descrip" type="text" autocomplete autocorrect ></ion-input>
+      <ion-input formControlName="descrip" type="text" autocomplete autocorrect >{{habitacion.descrip}}</ion-input>
     </ion-item>
    <ion-item lines="full">
       <ion-label position="floating">Costo por noche</ion-label>
-      <ion-input formControlName="price" type="text" autocomplete autocorrect ></ion-input>
+      <ion-input formControlName="price" type="text" autocomplete autocorrect >{{habitacion.price}}</ion-input>
     </ion-item>
 
     <ion-radio-group formControlName="status">
@@ -48,14 +44,14 @@
 
     <ion-item lines="full">
       <ion-label position="floating">Maximo de personas en el cuarto</ion-label>
-      <ion-input formControlName="perRoom" type="text" autocomplete autocorrect ></ion-input>
+      <ion-input formControlName="perRoom" type="text" autocomplete autocorrect >{{habitacion.perRoom}}</ion-input>
     </ion-item>
 
     <ion-row *ngIf="
-        !formEjemplo.get('descrip').valid &&
-        !formEjemplo.get('id').valid &&
-        !formEjemplo.get('title').valid &&
-        !formEjemplo.get('price').valid
+        !formEdit.get('descrip').valid &&
+        !formEdit.get('id').valid &&
+        !formEdit.get('title').valid &&
+        !formEdit.get('price').valid
       ">
         <ion-col  size-sm="6" offset-sm="3">
           <p>Todos los campos son requeridos</p>
@@ -68,6 +64,8 @@
         <ion-button type="submit" color="danger" expand="block">Submit</ion-button>
       </ion-col>
     </ion-row>
+
+
 <!--
       <ion-row *ngIf="!formEjemplo.get('descrip').valid &&
                       formEjemplo.get('descrip').touched">

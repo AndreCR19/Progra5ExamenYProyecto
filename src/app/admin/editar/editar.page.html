@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/home"></ion-back-button>
+      <ion-back-button defaultHref="/admin"></ion-back-button>
     </ion-buttons>
     <ion-title>editar</ion-title>
   </ion-toolbar>
@@ -18,6 +18,23 @@
           {{habitacion.title}}
         </h4>
       </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-radio-group>
+        <ion-list-header>
+          Editar habitacion
+      </ion-list-header>
+
+      <ion-item lines="none">
+        <ion-label>Activa</ion-label>
+        <ion-radio value="true" slot="start"></ion-radio>
+    </ion-item>
+    <ion-item lines="none">
+        <ion-label>Inactiva</ion-label>
+        <ion-radio value="false" slot="start" ></ion-radio>
+    </ion-item>
+
+      </ion-radio-group>
     </ion-row>
   </ion-grid>
 </ion-content>

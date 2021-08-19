@@ -42,7 +42,6 @@ export class PrincipalService {
     )};
   }
   addHabitacion(id: string, title: string, descrip: string, price: number, status: boolean, perRoom: number){
-    id = Math.random().toString();
     const newHabi = new Habitacion(
       id,
       title,
@@ -53,5 +52,17 @@ export class PrincipalService {
     );
     this.habitaciones.push(newHabi);
     console.log(this.habitaciones);
+  }
+  editHabitacion(id: string, title: string, descrip: string, price: number, status: boolean, perRoom: number){
+    id = Math.random().toString();
+    const alteredHabi = new Habitacion(
+      id,
+      title,
+      descrip,
+      price,
+      status,
+      perRoom
+    );
+
   }
 }

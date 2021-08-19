@@ -9,12 +9,23 @@ const routes: Routes = [
     component: AdminPage
   },
   {
-    path: 'editar',
-    loadChildren: () => import('./editar/editar.module').then( m => m.EditarPageModule)
-  },
-  {
     path: 'agregar',
     loadChildren: () => import('./agregar/agregar.module').then( m => m.AgregarPageModule)
+  },
+  {
+    path: 'editar',
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./editar/editar.module').then( m => m.EditarPageModule)
+      },
+      {
+        path: ':habiID',
+        loadChildren: () => import('./editar/edit/edit.module').then(
+          m => m.EditPageModule
+        )
+      }
+    ]
   }
 ];
 
