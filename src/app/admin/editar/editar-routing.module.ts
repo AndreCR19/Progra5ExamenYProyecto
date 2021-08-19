@@ -9,8 +9,19 @@ const routes: Routes = [
     component: EditarPage
   },
   {
-    path: 'edit',
-    loadChildren: () => import('./edit/edit.module').then( m => m.EditPageModule)
+    path: 'editar',
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./edit/edit.module').then( m => m.EditPageModule)
+      },
+      {
+        path: ':habiID',
+        loadChildren: () => import('./edit/edit.module').then(
+          m => m.EditPageModule
+        )
+      }
+    ]
   }
 ];
 
