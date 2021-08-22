@@ -51,8 +51,7 @@ export class AgregarPage implements OnInit {
     this.router.navigate(['/admin']);
   }
 
-  addHabitacion() {
-    console.log('llega aqui');
+  /* addHabitacion(value) {
     return new Promise<any> ((resolve, reject) => {
       this.afs.collection('/rooms').add({
         id: this.formEjemplo.value.id,
@@ -70,5 +69,5 @@ export class AgregarPage implements OnInit {
         err => reject(err)
       );
     });
-  }
+  } */
 }

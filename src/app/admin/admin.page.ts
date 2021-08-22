@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Habitacion } from '../app.model';
 import { Reservacion } from '../app.model';
 import { PrincipalService } from '../app.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-admin',

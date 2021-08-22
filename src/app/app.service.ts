@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Habitacion } from './app.model';
 import { Reservacion } from './app.model';
@@ -32,7 +33,9 @@ export class PrincipalService {
       dateFinish: '19-08-2021'
     }
   ];
-  constructor() { }
+  constructor(
+    private httpClient: HttpClient
+  ) { }
   getAll(){
     return [...this.habitaciones];
   }
@@ -50,6 +53,17 @@ export class PrincipalService {
       status,
       perRoom
     );
+    this.httpClient.post('https://progra5eyp-default-rtdb.firebaseio.com/rooms.json',
+    {
+      ...newHabi,
+      id: newHabi.id
+    })
+    .subscribe(
+      (restData) => {
+        console.log(restData);
+      },
+    );
+
     this.habitaciones.push(newHabi);
     console.log(this.habitaciones);
   }
