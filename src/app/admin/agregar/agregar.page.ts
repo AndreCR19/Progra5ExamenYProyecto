@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PrincipalService } from 'src/app/app.service';
@@ -15,7 +16,8 @@ export class AgregarPage implements OnInit {
   constructor(
     private productService: PrincipalService,
     private router: Router,
-    public formBuilder: FormBuilder
+    public formBuilder: FormBuilder,
+    public afs: AngularFirestore
   ) { }
 
   ngOnInit() {
@@ -47,5 +49,26 @@ export class AgregarPage implements OnInit {
       this.formEjemplo.value.perRoom
     );
     this.router.navigate(['/admin']);
+  }
+
+  addHabitacion() {
+    console.log('llega aqui');
+    return new Promise<any> ((resolve, reject) => {
+      this.afs.collection('/rooms').add({
+        id: this.formEjemplo.value.id,
+        title: this.formEjemplo.value.title,
+        description: this.formEjemplo.value.descrip,
+        price: this.formEjemplo.value.price,
+        status: this.formEjemplo.value.status,
+        perRoom: this.formEjemplo.value.perRoom
+      })
+      .then(
+        (res) => {
+          resolve(res);
+          this.router.navigate(['/admin']);
+        },
+        err => reject(err)
+      );
+    });
   }
 }
