@@ -26,7 +26,7 @@ export class AgregarPage implements OnInit {
       pass: ['', [Validators.required, Validators.minLength(3)]]
  */
     this.formEjemplo = this.formBuilder.group({
-      id: ['', [Validators.required, Validators.minLength(3)]],
+      id: [''],
       title: ['', [Validators.required, Validators.minLength(3)]],
       descrip: ['', [Validators.required, Validators.minLength(3)]],
       price: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],

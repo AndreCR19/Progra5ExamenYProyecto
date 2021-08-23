@@ -10,16 +10,16 @@
 <ion-content>
   <form [formGroup]="formEdit" (ngSubmit)="editFunction()" novalidate>
     <ion-item lines="full">
-      <ion-label position="floating">Titulo:  {{habitacion.title}}</ion-label>
+      <ion-label position="floating">Titulo:</ion-label>
       <ion-input formControlName="title" type="text" autocomplete autocorrect ></ion-input>
     </ion-item>
 
     <ion-item lines="full">
-      <ion-label position="floating">Descripcion: {{habitacion.descrip}}</ion-label>
+      <ion-label position="floating">Descripcion:</ion-label>
       <ion-input formControlName="descrip" type="text" autocomplete autocorrect ></ion-input>
     </ion-item>
    <ion-item lines="full">
-      <ion-label position="floating">Costo por noche: {{habitacion.price}} </ion-label>
+      <ion-label position="floating">Costo por noche:</ion-label>
       <ion-input formControlName="price" type="text" autocomplete autocorrect ></ion-input>
     </ion-item>
 
@@ -39,7 +39,7 @@
     </ion-radio-group>
 
     <ion-item lines="full">
-      <ion-label position="floating">Maximo de personas en el cuarto: {{habitacion.perRoom}}</ion-label>
+      <ion-label position="floating">Maximo de personas en el cuarto:</ion-label>
       <ion-input formControlName="perRoom" type="text" autocomplete autocorrect ></ion-input>
     </ion-item>
 

@@ -23,15 +23,6 @@ export class EditPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.formEdit = this.formBuilder.group({
-      id: [''],
-      title: ['', [Validators.required, Validators.minLength(3)]],
-      descrip: ['', [Validators.required, Validators.minLength(3)]],
-      price: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
-      status: ['', [Validators.required]],
-      perRoom: ['', [Validators.required, Validators.pattern('^[0-9]+$')]]
-    });
-
     this.activatedRoute.paramMap.subscribe(
       paramMap => {
         if(!paramMap.has('habiID')){
@@ -42,6 +33,15 @@ export class EditPage implements OnInit {
         this.habitacion = this.principalServicio.getHabitacion(habitacionId);
       }
     );
+    this.formEdit = this.formBuilder.group({
+      id: [''],
+      title: [this.habitacion.title, [Validators.required, Validators.minLength(3)]],
+      descrip: [this.habitacion.descrip, [Validators.required, Validators.minLength(3)]],
+      price: [this.habitacion.price, [Validators.required, Validators.pattern('^[0-9]+$')]],
+      status: [this.habitacion.status, [Validators.required]],
+      perRoom: [this.habitacion.perRoom, [Validators.required, Validators.pattern('^[0-9]+$')]]
+    });
+
   }
   editFunction(){
     this.submitted = true;
