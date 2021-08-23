@@ -26,7 +26,7 @@ export class AgregarPage implements OnInit {
       title: ['', [Validators.required, Validators.minLength(3)]],
       descrip: ['', [Validators.required, Validators.minLength(3)]],
       price: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
-      status: ['', [Validators.required, Validators.minLength(3)]],
+      status: ['', [Validators.required]],
       perRoom: ['', [Validators.required, Validators.pattern('^[0-9]+$')]]
     });
   }

@@ -49,7 +49,7 @@ export class PrincipalService {
   }
 
 
-  addHabitacion(id: string, title: string, descrip: string, price: number, status: boolean, perRoom: number){
+  addHabitacion(id: string, title: string, descrip: string, price: number, status: string, perRoom: number){
     const newHabi = new Habitacion(
       id,
       title,
@@ -74,7 +74,7 @@ export class PrincipalService {
   }
 
 
-  editHabitacion(id: string, title: string, descrip: string, price: number, status: boolean, perRoom: number){
+  editHabitacion(id: string, title: string, descrip: string, price: number, status: string, perRoom: number){
     const alteredHabi = new Habitacion(
       id,
       title,

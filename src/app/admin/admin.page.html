@@ -14,8 +14,8 @@
         <h4>Habitaciones</h4>
       </ion-col>
     </ion-row>
-  <ion-card>
-      <div *ngFor="let habitacion of habitaciones" [routerLink]="['./', habitacion.id]">
+    <div *ngFor="let habitacion of habitaciones" [routerLink]="['./', habitacion.id]">
+      <ion-card>
         <ion-row>
           <ion-text>{{habitacion.title}}</ion-text>
         </ion-row>
@@ -23,12 +23,15 @@
           <ion-text> {{habitacion.descrip}} </ion-text>
         </ion-row>
         <ion-row>
-          <ion-text> {{habitacion.price}} </ion-text>
+          <ion-text> ${{habitacion.price}}  por noche</ion-text>
         </ion-row>
-        <ion-row>
-          <ion-text> {{habitacion.status}} </ion-text>
+        <ion-row *ngIf="habitacion.status === 'true'; else Deshabilitada">
+          <ion-text>  Estado: Habilitada</ion-text>
         </ion-row>
-      </div>
-    </ion-card>
+        <ng-template #Deshabilitada>
+          <ion-text> Estado: Deshabilitada</ion-text>
+        </ng-template>
+      </ion-card>
+    </div>
   </ion-grid>
 </ion-content>

@@ -3,7 +3,7 @@ export interface Habitacion {
   title: string;
   descrip: string;
   price: number;
-  status: boolean;
+  status: string;
   perRoom: number;
 }
 export class Habitacion {
@@ -12,7 +12,7 @@ export class Habitacion {
     public title: string,
     public descrip: string,
     public price: number,
-    public status: boolean,
+    public status: string,
     public perRoom: number
   ){}
 }
