@@ -2,29 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Habitacion } from './app.model';
 import { Reservacion } from './app.model';
-
+import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
 export class PrincipalService {
-  private habitaciones: Habitacion[] = [
-    {
-      id: 'habi1001',
-      title: 'Habitacion Queen',
-      descrip: 'Una cama, vista al jardin',
-      price: 30,
-      status: true,
-      perRoom: 2
-    },
-    {
-      id: 'habi1002',
-      title: 'Habitacion King',
-      descrip: 'Una cama, vista al jardin',
-      price: 31,
-      status: true,
-      perRoom: 3
-    }
-  ];
+  private habitaciones: Habitacion[] = [];
   private reservaciones: Reservacion[] = [
     {
       id: '1000001',
@@ -35,7 +18,27 @@ export class PrincipalService {
   ];
   constructor(
     private httpClient: HttpClient
-  ) { }
+  ) {
+    this.httpClient.get<{ [key: string]: Habitacion}>('https://progra5eyp-default-rtdb.firebaseio.com/rooms.json')
+    .subscribe(
+      restData => {
+        const habitaciones = [];
+        for ( const key in restData) {
+          if(restData.hasOwnProperty(key)) {
+            habitaciones.push(new Habitacion(
+              key,
+              restData[key].title,
+              restData[key].descrip,
+              restData[key].price,
+              restData[key].status,
+              restData[key].perRoom
+            ));
+          }
+        }
+        this.habitaciones = habitaciones;
+      }
+    );
+  }
   getAll(){
     return [...this.habitaciones];
   }
@@ -44,6 +47,8 @@ export class PrincipalService {
       habitacion => habiID === habitacion.id
     )};
   }
+
+
   addHabitacion(id: string, title: string, descrip: string, price: number, status: boolean, perRoom: number){
     const newHabi = new Habitacion(
       id,
@@ -53,22 +58,23 @@ export class PrincipalService {
       status,
       perRoom
     );
-    this.httpClient.post('https://progra5eyp-default-rtdb.firebaseio.com/rooms.json',
+    this.httpClient.post<{name: string}>('https://progra5eyp-default-rtdb.firebaseio.com/rooms.json',
     {
       ...newHabi,
-      id: newHabi.id
+      id: null
     })
     .subscribe(
       (restData) => {
-        console.log(restData);
+        newHabi.id = restData.name;
       },
     );
 
     this.habitaciones.push(newHabi);
     console.log(this.habitaciones);
   }
+
+
   editHabitacion(id: string, title: string, descrip: string, price: number, status: boolean, perRoom: number){
-    id = Math.random().toString();
     const alteredHabi = new Habitacion(
       id,
       title,
@@ -77,6 +83,16 @@ export class PrincipalService {
       status,
       perRoom
     );
-
+    this.httpClient.put<{name: string}>
+    (`https://progra5eyp-default-rtdb.firebaseio.com/rooms/${id}.json`,
+    {
+      ...alteredHabi,
+      id: null
+    })
+    .subscribe(
+      (restData) => {
+        alteredHabi.id = restData.name;
+      },
+    );
   }
 }

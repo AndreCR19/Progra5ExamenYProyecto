@@ -15,13 +15,13 @@ export class AdminPage implements OnInit {
   constructor(private principalServicio: PrincipalService) {}
 
   ngOnInit() {
-    console.log('entro al init');
-    this.habitaciones = this.principalServicio.getAll();
   }
   ionViewWillEnter(){
     console.log('Entro al will enter');
     console.log('Entro al will enter');
-    this.habitaciones = this.principalServicio.getAll();
+    setTimeout(() => {
+      this.habitaciones = this.principalServicio.getAll();
+    }, 150);
   }
 
 }

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Habitacion } from 'src/app/app.model';
 import { PrincipalService } from 'src/app/app.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -19,14 +18,13 @@ export class EditPage implements OnInit {
     private activatedRoute: ActivatedRoute,
     private principalServicio: PrincipalService,
     private router: Router,
-    private alertCtrl: AlertController,
     public formBuilder: FormBuilder,
     private productService: PrincipalService,
   ) { }
 
   ngOnInit() {
     this.formEdit = this.formBuilder.group({
-      id: ['', [Validators.required]],
+      id: [''],
       title: ['', [Validators.required, Validators.minLength(3)]],
       descrip: ['', [Validators.required, Validators.minLength(3)]],
       price: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
@@ -52,7 +50,7 @@ export class EditPage implements OnInit {
     }
     console.log(this.formEdit);
     this.productService.editHabitacion(
-      this.formEdit.value.id,
+      this.habitacion.id,
       this.formEdit.value.title,
       this.formEdit.value.descrip,
       this.formEdit.value.price,
