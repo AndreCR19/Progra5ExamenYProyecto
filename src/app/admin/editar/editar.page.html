@@ -6,23 +6,23 @@
         <ion-icon name="create-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>editar</ion-title>
+    <ion-title> <p align="center">Habitacion {{habitacion.title}}</p></ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-grid>
-    <ion-row class="ion-align-self-center">
-      <ion-col>
-        <h3>
-          {{habitacion.descrip}}
-        </h3>
-        <h4>
-          {{habitacion.title}}
-        </h4>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-    </ion-row>
+    <ion-card>
+      <ion-row class="ion-align-self-center">
+        <ion-col size-md="3" offset-sm="5">
+          <h2>
+            {{habitacion.title}}
+          </h2>
+          <h4>
+            {{habitacion.descrip}}
+          </h4>
+        </ion-col>
+      </ion-row>
+    </ion-card>
   </ion-grid>
 </ion-content>

@@ -21,10 +21,6 @@ export class AgregarPage implements OnInit {
   ) { }
 
   ngOnInit() {
-/*     this.loginForm =this.formBuilder.group({
-      user: ['', [Validators.required, Validators.minLength(3)]],
-      pass: ['', [Validators.required, Validators.minLength(3)]]
- */
     this.formEjemplo = this.formBuilder.group({
       id: [''],
       title: ['', [Validators.required, Validators.minLength(3)]],

@@ -1,31 +1,34 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Lista Vista Administrador</ion-title>
+    <ion-title><p align ="center">Hotel jardin encantador</p></ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-row>
-    <ion-col size-sm="1" >
-      <h2 class="ion-float-right">Cuartos </h2>
-    </ion-col>
-    <ion-col>
-      <ion-button class="ion-float-left" [routerLink]="['./agregar']">
-        <ion-icon name="add-circle-outline"></ion-icon>
-      </ion-button>
-    </ion-col>
-  </ion-row>
-
-  <ion-list>
-    <div *ngFor="let habitacion of habitaciones" [routerLink]="['./', habitacion.id]">
-      <ion-item> {{habitacion.id}}
-        <ion-text> {{habitacion.title}} </ion-text>
-        <ion-text> {{habitacion.price}} </ion-text>
-        <ion-text> {{habitacion.descrip}} </ion-text>
-        <ion-text> {{habitacion.price}} </ion-text>
-        <ion-text> {{habitacion.status}} </ion-text>
-      </ion-item>
-    </div>
-  </ion-list>
-
+  <ion-grid>
+    <ion-row>
+      <ion-col  size-md="3" offset-sm="5">
+          <ion-button color="dark"class="ion-float-left" [routerLink]="['./agregar']">
+            <ion-icon name="add-circle-outline"></ion-icon>
+          </ion-button>
+        <h4>Habitaciones</h4>
+      </ion-col>
+    </ion-row>
+  <ion-card>
+      <div *ngFor="let habitacion of habitaciones" [routerLink]="['./', habitacion.id]">
+        <ion-row>
+          <ion-text>{{habitacion.title}}</ion-text>
+        </ion-row>
+        <ion-row>
+          <ion-text> {{habitacion.descrip}} </ion-text>
+        </ion-row>
+        <ion-row>
+          <ion-text> {{habitacion.price}} </ion-text>
+        </ion-row>
+        <ion-row>
+          <ion-text> {{habitacion.status}} </ion-text>
+        </ion-row>
+      </div>
+    </ion-card>
+  </ion-grid>
 </ion-content>

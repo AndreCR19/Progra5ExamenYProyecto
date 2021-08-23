@@ -1,68 +1,65 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title> Agregar un nuevo cuarto al sistema</ion-title>
-    <ion-buttons slot="primary">
-      <ion-buttons slot="start">
+    <ion-buttons slot="start">
         <ion-back-button defaultHref="/admin"></ion-back-button>
-      </ion-buttons>
-      <ion-button (click)="addFunction()">
-        <ion-icon name="checkmark" slot="icon-only"></ion-icon>
-      </ion-button>
     </ion-buttons>
+    <ion-title> <p align="center"> Agregar nueva habitacion al sistema</p></ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <form [formGroup]="formEjemplo" (ngSubmit)="addFunction()" novalidate>
-    <ion-item lines="full">
-      <ion-label position="floating">Titulo</ion-label>
-      <ion-input formControlName="title" type="text" autocomplete autocorrect ></ion-input>
-    </ion-item>
-    <ion-item lines="full">
-      <ion-label position="floating">Descripcion</ion-label>
-      <ion-input formControlName="descrip" type="text" autocomplete autocorrect ></ion-input>
-    </ion-item>
-   <ion-item lines="full">
-      <ion-label position="floating">Costo por noche</ion-label>
-      <ion-input formControlName="price" type="text" autocomplete autocorrect ></ion-input>
-    </ion-item>
-
-    <ion-radio-group formControlName="status">
-      <ion-list-header>
-          Estado de la habitacion
-      </ion-list-header>
-
-      <ion-item lines="none">
-          <ion-label>Activa</ion-label>
-          <ion-radio value="true" checked slot="start"></ion-radio>
+  <ion-card>
+    <form [formGroup]="formEjemplo" (ngSubmit)="addFunction()" novalidate>
+      <ion-item lines="full">
+        <ion-label position="floating">Titulo</ion-label>
+        <ion-input formControlName="title" type="text" autocomplete autocorrect ></ion-input>
       </ion-item>
-      <ion-item lines="none">
-          <ion-label>Inactiva</ion-label>
-          <ion-radio value="false" slot="start" ></ion-radio>
+      <ion-item lines="full">
+        <ion-label position="floating">Descripcion</ion-label>
+        <ion-input formControlName="descrip" type="text" autocomplete autocorrect ></ion-input>
       </ion-item>
-    </ion-radio-group>
+     <ion-item lines="full">
+        <ion-label position="floating">Costo por noche</ion-label>
+        <ion-input formControlName="price" type="text" autocomplete autocorrect ></ion-input>
+      </ion-item>
 
-    <ion-item lines="full">
-      <ion-label position="floating">Maximo de personas en el cuarto</ion-label>
-      <ion-input formControlName="perRoom" type="text" autocomplete autocorrect ></ion-input>
-    </ion-item>
+      <ion-radio-group formControlName="status">
+        <ion-list-header>
+            Estado de la habitacion
+        </ion-list-header>
 
-    <ion-row *ngIf="
-        !formEjemplo.get('descrip').valid &&
-        !formEjemplo.get('id').valid &&
-        !formEjemplo.get('title').valid &&
-        !formEjemplo.get('price').valid
-      ">
-        <ion-col  size-sm="6" offset-sm="3">
-          <p>Todos los campos son requeridos</p>
+        <ion-item lines="none">
+            <ion-label>Activa</ion-label>
+            <ion-radio value="true" checked slot="start"></ion-radio>
+        </ion-item>
+        <ion-item lines="none">
+            <ion-label>Inactiva</ion-label>
+            <ion-radio value="false" slot="start" ></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+
+      <ion-item lines="full">
+        <ion-label position="floating">Maximo de personas en el cuarto</ion-label>
+        <ion-input formControlName="perRoom" type="text" autocomplete autocorrect ></ion-input>
+      </ion-item>
+
+      <ion-row *ngIf="
+          !formEjemplo.get('descrip').valid &&
+          !formEjemplo.get('id').valid &&
+          !formEjemplo.get('title').valid &&
+          !formEjemplo.get('price').valid
+        ">
+          <ion-col  size-sm="3" offset-sm="5">
+            <p> *** Todos los campos son requeridos</p>
+          </ion-col>
+      </ion-row>
+
+
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" color="dark" expand="block" outline>Submit</ion-button>
         </ion-col>
-    </ion-row>
-
-
-    <ion-row>
-      <ion-col>
-        <ion-button type="submit" color="danger" expand="block">Submit</ion-button>
-      </ion-col>
-    </ion-row>
-  </form>
+      </ion-row>
+    </form>
+  </ion-card>
 </ion-content>

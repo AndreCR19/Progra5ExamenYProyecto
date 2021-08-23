@@ -21,7 +21,7 @@ export class AdminPage implements OnInit {
     console.log('Entro al will enter');
     setTimeout(() => {
       this.habitaciones = this.principalServicio.getAll();
-    }, 150);
+    }, 250);
   }
 
 }

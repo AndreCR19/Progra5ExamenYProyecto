@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Editar habitacion {{habitacion.title}}</ion-title>
+    <ion-title><p align="center"> Editar habitacion: {{habitacion.title}}</p></ion-title>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/admin"></ion-back-button>
     </ion-buttons>
@@ -50,25 +50,15 @@
         !formEdit.get('price').valid
       ">
         <ion-col  size-sm="6" offset-sm="3">
-          <p>Todos los campos son requeridos</p>
+          <p> *** Todos los campos son requeridos</p>
         </ion-col>
     </ion-row>
 
 
     <ion-row>
       <ion-col>
-        <ion-button type="submit" color="danger" expand="block">Submit</ion-button>
+        <ion-button type="submit" color="dark" expand="block" outline>Submit</ion-button>
       </ion-col>
     </ion-row>
-
-
-<!--
-      <ion-row *ngIf="!formEjemplo.get('descrip').valid &&
-                      formEjemplo.get('descrip').touched">
-        <ion-col  size-sm="6" offset-sm="3">
-          <p>La descripcion debe de ser menor a 180 caracteres</p>
-        </ion-col>
-      </ion-row>
- -->
   </form>
 </ion-content>
