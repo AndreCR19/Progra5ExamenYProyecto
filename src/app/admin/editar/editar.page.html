@@ -6,7 +6,7 @@
         <ion-icon name="create-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title> <p align="center">Habitacion {{habitacion.title}}</p></ion-title>
+    <ion-title> <p align="center"> {{habitacion.title}}</p></ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -15,12 +15,16 @@
     <ion-card>
       <ion-row class="ion-align-self-center">
         <ion-col size-md="3" offset-sm="5">
-          <h2>
-            {{habitacion.title}}
-          </h2>
-          <h4>
+          <ion-img src="../assets/img/coral-beach-hotel-resort.jpg"> </ion-img>
+          <h3>
             {{habitacion.descrip}}
-          </h4>
+          </h3>
+          <h3>
+            <ion-icon name="people-sharp"></ion-icon> {{habitacion.perRoom}} personas maximo
+          </h3>
+            <h3>
+              <ion-icon name="pricetag-sharp"></ion-icon> ${{habitacion.price}} por noche
+          </h3>
         </ion-col>
       </ion-row>
     </ion-card>

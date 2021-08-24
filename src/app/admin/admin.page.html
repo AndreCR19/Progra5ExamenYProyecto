@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title><p align ="center">Hotel jardin encantador</p></ion-title>
+    <ion-title><p align ="center"><ion-icon name="leaf-sharp"></ion-icon> Hotel EcoSpace</p></ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -16,21 +16,25 @@
     </ion-row>
     <div *ngFor="let habitacion of habitaciones" [routerLink]="['./', habitacion.id]">
       <ion-card>
-        <ion-row>
-          <ion-text>{{habitacion.title}}</ion-text>
+        <ion-row class="ion-align-self-center">
+          <ion-col  size-md="3" offset-sm="5">
+            <ion-row>
+              <ion-text>{{habitacion.title}}</ion-text>
+            </ion-row>
+            <ion-row>
+              <ion-text> {{habitacion.descrip}} </ion-text>
+            </ion-row>
+            <ion-row>
+              <ion-text> ${{habitacion.price}}  por noche</ion-text>
+            </ion-row>
+            <ion-row *ngIf="habitacion.status === 'true'; else Deshabilitada">
+              <ion-text>  Estado: Habilitada</ion-text>
+            </ion-row>
+            <ng-template #Deshabilitada>
+              <ion-text> Estado: Deshabilitada</ion-text>
+            </ng-template>
+          </ion-col>
         </ion-row>
-        <ion-row>
-          <ion-text> {{habitacion.descrip}} </ion-text>
-        </ion-row>
-        <ion-row>
-          <ion-text> ${{habitacion.price}}  por noche</ion-text>
-        </ion-row>
-        <ion-row *ngIf="habitacion.status === 'true'; else Deshabilitada">
-          <ion-text>  Estado: Habilitada</ion-text>
-        </ion-row>
-        <ng-template #Deshabilitada>
-          <ion-text> Estado: Deshabilitada</ion-text>
-        </ng-template>
       </ion-card>
     </div>
   </ion-grid>

@@ -17,7 +17,7 @@ export class PrincipalService {
     }
   ];
   constructor(
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
   ) {
     this.httpClient.get<{ [key: string]: Habitacion}>('https://progra5eyp-default-rtdb.firebaseio.com/rooms.json')
     .subscribe(

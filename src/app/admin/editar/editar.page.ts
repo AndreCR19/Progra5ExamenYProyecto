@@ -11,6 +11,7 @@ import { PrincipalService } from 'src/app/app.service';
   styleUrls: ['./editar.page.scss'],
 })
 export class EditarPage implements OnInit {
+  source: 'https://www.baratahotels.com/solemar/media/hotel-sol-e-mar-room-webp.net-resizeimage-36-1.jpg';
   habitacion: Habitacion;
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -31,5 +32,4 @@ export class EditarPage implements OnInit {
       }
     );
   }
-
 }
