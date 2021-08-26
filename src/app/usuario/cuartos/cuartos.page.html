@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button defaultHref="/usuario"></ion-back-button>
+      <ion-title><p align ="center"><ion-icon name="leaf-sharp"></ion-icon> Hotel EcoSpace</p></ion-title>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col  size-md="3" offset-sm="5">
+        <h4>Habitaciones</h4>
+      </ion-col>
+    </ion-row>
+    <div *ngFor="let habitacion of habitaciones" [routerLink]="['./', habitacion.id]">
+      <ion-card *ngIf="habitacion.status === 'true'">
+        <ion-row class="ion-align-self-center">
+          <ion-col  size-md="3" offset-sm="5">
+            <ion-row>
+              <ion-text>{{habitacion.title}}</ion-text>
+            </ion-row>
+            <ion-row>
+              <ion-text> {{habitacion.descrip}} </ion-text>
+            </ion-row>
+            <ion-row>
+              <ion-text> ${{habitacion.price}}  por noche</ion-text>
+            </ion-row>
+            <ion-img src="../assets/img/coral-beach-hotel-resort.jpg"> </ion-img>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </div>
+  </ion-grid>
+</ion-content>
+

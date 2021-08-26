@@ -38,8 +38,26 @@ const routes: Routes = [
   },
   {
     path: 'usuario',
-    loadChildren: () => import('./usuario/usuario.module').then( m => m.UsuarioPageModule)
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./usuario/usuario.module').then(
+          m => m.UsuarioPageModule
+        )
+      },
+      {
+        path: ':habiID',
+        loadChildren: () => import('./usuario/cuartos/cuartos.module').then(
+          m => m.CuartosPageModule
+        )
+      }
+    ]
   },
+  {
+    path: 'registrar',
+    loadChildren: () => import('./registrar/registrar.module').then( m => m.RegistrarPageModule)
+  },
+
 ];
 
 @NgModule({

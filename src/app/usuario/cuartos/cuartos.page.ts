@@ -1,16 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { Habitacion, Reservacion } from '../app.model';
-import { PrincipalService } from '../app.service';
+import { Habitacion, Reservacion } from 'src/app/app.model';
+import { PrincipalService } from 'src/app/app.service';
 
 @Component({
-  selector: 'app-usuario',
-  templateUrl: './usuario.page.html',
-  styleUrls: ['./usuario.page.scss'],
+  selector: 'app-cuartos',
+  templateUrl: './cuartos.page.html',
+  styleUrls: ['./cuartos.page.scss'],
 })
-export class UsuarioPage implements OnInit {
+export class CuartosPage implements OnInit {
   habitaciones: Habitacion[];
   reser: Reservacion[];
-  constructor(private principalServicio: PrincipalService) { }
+  constructor(
+    private principalServicio: PrincipalService,
+    ) {}
 
   ngOnInit() {
   }
