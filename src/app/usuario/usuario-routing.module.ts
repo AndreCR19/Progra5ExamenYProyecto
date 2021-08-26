@@ -14,8 +14,19 @@ const routes: Routes = [
   },
   {
     path: 'cuartos',
-    loadChildren: () => import('./cuartos/cuartos.module').then( m => m.CuartosPageModule)
-  }
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./cuartos/cuartos.module').then( m => m.CuartosPageModule)
+      },
+      {
+        path: ':habiID',
+        loadChildren: () => import('./cuartos/detalle/detalle.module').then(
+          m => m.DetallePageModule
+        )
+      }
+    ]
+  },
 ];
 
 @NgModule({

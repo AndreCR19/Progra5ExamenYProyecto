@@ -11,7 +11,22 @@ const routes: Routes = [
   {
     path: 'detalle',
     loadChildren: () => import('./detalle/detalle.module').then( m => m.DetallePageModule)
-  }
+  }/* ,
+  {
+    path: 'detalle',
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./detalle/detalle.module').then( m => m.DetallePageModule)
+      },
+      {
+        path: ':habiID',
+        loadChildren: () => import('./detalle/detalle.module').then(
+          m => m.DetallePageModule
+        )
+      }
+    ]
+  } */
 ];
 
 @NgModule({
