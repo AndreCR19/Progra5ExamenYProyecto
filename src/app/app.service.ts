@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Habitacion } from './app.model';
+import { Habitacion, User } from './app.model';
 import { Reservacion } from './app.model';
 import { map } from 'rxjs/operators';
 @Injectable({
@@ -16,6 +16,7 @@ export class PrincipalService {
       dateFinish: '19-08-2021'
     }
   ];
+  private user: User[] = [];
   constructor(
     private httpClient: HttpClient,
   ) {
@@ -38,7 +39,46 @@ export class PrincipalService {
         this.habitaciones = habitaciones;
       }
     );
+
+    this.httpClient.get<{ [key: string]: Reservacion}>('https://progra5eyp-default-rtdb.firebaseio.com/reservations.json')
+    .subscribe(
+      restData => {
+        const reservaciones = [];
+        for ( const key in restData) {
+          if(restData.hasOwnProperty(key)) {
+            reservaciones.push(new Reservacion(
+              key,
+              restData[key].idHabitacion,
+              restData[key].dateStart,
+              restData[key].dateFinish
+            ));
+          }
+        }
+      }
+    );
+
+
+    this.httpClient.get<{ [key: string]: User}>('https://progra5eyp-default-rtdb.firebaseio.com/users.json')
+    .subscribe(
+      restData => {
+        const users = [];
+        for ( const key in restData) {
+          if(restData.hasOwnProperty(key)) {
+            users.push(new User(
+              key,
+              restData[key].fname,
+              restData[key].lastName,
+              restData[key].email,
+              restData[key].pass,
+              restData[key].rol
+            ));
+          }
+        }
+      }
+    );
   }
+
+
   getAll(){
     return [...this.habitaciones];
   }
@@ -48,6 +88,13 @@ export class PrincipalService {
     )};
   }
 
+  getAllReser(){
+    return [...this.reservaciones];
+  }
+
+  getAllUser(){
+    return [...this.user];
+  }
 
   addHabitacion(id: string, title: string, descrip: string, price: number, status: string, perRoom: number){
     const newHabi = new Habitacion(
@@ -73,7 +120,6 @@ export class PrincipalService {
     console.log(this.habitaciones);
   }
 
-
   editHabitacion(id: string, title: string, descrip: string, price: number, status: string, perRoom: number){
     const alteredHabi = new Habitacion(
       id,
@@ -94,5 +140,30 @@ export class PrincipalService {
         alteredHabi.id = restData.name;
       },
     );
+  }
+
+
+  addUser(id: string, fname: string, lastName: string, email: string, pass: string, rol: number){
+    const newUser = new User(
+      id,
+      fname,
+      lastName,
+      email,
+      pass,
+      rol
+    );
+    this.httpClient.post<{name: string}>('https://progra5eyp-default-rtdb.firebaseio.com/users.json',
+    {
+      ...newUser,
+      id: null
+    })
+    .subscribe(
+      (restData) => {
+        newUser.id = restData.name;
+      },
+    );
+
+    this.user.push(newUser);
+    console.log(this.user);
   }
 }

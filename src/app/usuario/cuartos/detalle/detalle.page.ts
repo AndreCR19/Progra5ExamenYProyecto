@@ -11,7 +11,7 @@ import { PrincipalService } from 'src/app/app.service';
 })
 export class DetallePage implements OnInit {
   habitacion: Habitacion;
-  active = '';
+ /*  active = '';
 
   nav = [
     {
@@ -29,15 +29,15 @@ export class DetallePage implements OnInit {
       link: '/usuario/perfil',
       icon: 'call'
     }
-  ];
+  ]; */
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private principalServicio: PrincipalService
     ) {
-    this.router.events.subscribe((event: RouterEvent) => {
+    /* this.router.events.subscribe((event: RouterEvent) => {
       this.active = event.url;
-    });
+    }); */
   }
 
   ngOnInit() {

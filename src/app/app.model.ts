@@ -22,3 +22,31 @@ export interface Reservacion {
   dateStart: string;
   dateFinish: string;
 }
+export class Reservacion {
+  constructor(
+    public id: string,
+    public idHabitacion: string,
+    public dateStart: string,
+    public dateFinish: string
+  ){}
+}
+
+export interface User {
+  id: string;
+  fname: string;
+  lastName: string;
+  email: string;
+  pass: string;
+  rol: number;
+}
+
+export class User {
+  constructor(
+    public id: string,
+    public fname: string,
+    public lastName: string,
+    public email: string,
+    public pass: string,
+    public rol: number
+  ){}
+}
