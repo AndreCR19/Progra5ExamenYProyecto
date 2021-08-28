@@ -1,10 +1,36 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>perfil</ion-title>
-    <ion-text *ngFor="let user of usuario"> {{ user.fname }}</ion-text>
+    <ion-buttons>
+      <ion-back-button defaultHref="/usuario"></ion-back-button>
+      <ion-title><p align ="center"> Perfil</p></ion-title>
+    </ion-buttons>
   </ion-toolbar>
+  <ion-button color="dark" [routerLink]="['/login']">
+    <ion-icon name="log-out-outline"></ion-icon>
+  </ion-button>
 </ion-header>
 
 <ion-content>
-
+  <ion-grid>
+    <ion-card *ngFor="let user of usuario">
+      <ion-row class="ion-align-self-center">
+        <ion-col size-md="3" offset-sm="5">
+          <h3>
+            <ion-img src="../assets/img/usuario.jpg"> </ion-img>
+          </h3>
+          <h3>
+            {{user.fname}}
+          </h3>
+          <h3>
+            {{user.lastName}}
+          </h3>
+            <h3>
+             {{user.email}}
+          </h3>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ion-grid>
 </ion-content>
+
+

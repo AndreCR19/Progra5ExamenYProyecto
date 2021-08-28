@@ -1,12 +1,15 @@
 <ion-header>
   <ion-toolbar>
     <ion-title><p align ="center"><ion-icon name="leaf-sharp"></ion-icon> Hotel EcoSpace</p></ion-title>
-    <ion-button [routerLink]="['./cuartos']">
+    <ion-button color="dark" [routerLink]="['./cuartos']">
       <ion-icon name="bed-outline"></ion-icon>
 
     </ion-button>
-    <ion-button [routerLink]="['./perfil']">
+    <ion-button color="dark" [routerLink]="['./perfil']">
       <ion-icon name="person-circle-outline"></ion-icon>
+    </ion-button>
+    <ion-button color="dark" [routerLink]="['/login']">
+      <ion-icon name="log-out-outline"></ion-icon>
     </ion-button>
     <ion-text *ngFor="let user of usuario"> {{ user.fname }}</ion-text>
   </ion-toolbar>
@@ -18,10 +21,10 @@
       <ion-img src="../assets/img/coral-beach-hotel-resort.jpg"> </ion-img>
     </ion-slide>
     <ion-slide class="slide-2">
-      <h1>Slide 2</h1> <ion-img src="../assets/img/coral-beach-hotel-resort.jpg"> </ion-img>
+      <ion-img src="../assets/img/vista.jpg"> </ion-img>
     </ion-slide>
     <ion-slide class="slide-3">
-      <h1>Slide 3</h1>
+      <ion-img src="../assets/img/jacuzzi.jpg"> </ion-img>
     </ion-slide>
   </ion-slides>
   <p> BIENVENIDO AL HOTEL ECOESCAPE</p>
@@ -30,29 +33,13 @@
       <ion-card>
         <p>El complejo de 5 estrellas, Hotel EcoEscape (Todo Incluido 24h), está situado en la playa de Matapalo en Guanacaste, Costa Rica. Este hotel totalmente preparado para dar el mejor servicio a sus clientes dispone de piscina de agua dulce y terraza-solárium. </p>
         <p>En el EcoEspace encontrarás también jacuzzi, gimnasio, baño de vapor y un centro de wellness con diferentes tratamientos y masajes. Todo lo que necesitas para conseguir el máximo bienestar durante tu estancia.</p>
-
-
         <p>Gracias al servicio de todo incluido podrás disfrutar la gran variedad de sabores tanto del restaurante buffet como de todos los diferentes restaurantes temáticos que el hotel dispone. Si tu estancia es por trabajo o negocio entonces el Hotel Riu Guanacaste será ideal para ti. En el EcoEscape hay cinco salas de conferencias modernas y completamente equipadas para que puedas realizar reuniones o conferencias de forma profesional y sencilla así como varios servicios que podrás solicitar.
-
           Al estar en un entorno privilegiado, el hotel ofrece para todas las edades, sea en familia, pareja o amigos, una diversidad de actividades de entretenimiento como gimnasia, tenis, tenis de mesa, voleibol, billar, prueba de buceo y equipo de snorkel y en sus bellas playas: windsurf, kayak, velomares y otras actividades acuáticas. También podrás practicar ecoturismo por zonas volcánicas, pesca en las aguas del Pacífico o si eres un apasionado del golf este destino te propone un recorrido de talla mundial tanto por su belleza como por la exigencia del trazado.</p>
-
-        <p>Guanacaste es menos tropical, húmeda y exuberante que el resto del país. Sus praderas y bosques secos en ocasiones recuerdan a paisajes de sabana africana. Hacia el interior podrás realizar algunas excursiones para ver a los sabaneros, vaqueros locales montados en sus caballos mientras conducen a sus rebaños, que son auténticas figuras de la cultura popular de este destino. Para más información puedes consultar toda la información útil de Guanacaste.
-
-           Descubre las ofertas del EcoEscape y ven a disfrutar de la playa, sol y del distinguido servicio de EcoEscape Hotels.</p>
       </ion-card>
     </ion-col>
   <ion-col size="6" >
     <ion-card>
-      <p>El complejo de 5 estrellas, Hotel EcoEscape (Todo Incluido 24h), está situado en la playa de Matapalo en Guanacaste, Costa Rica. Este hotel totalmente preparado para dar el mejor servicio a sus clientes dispone de piscina de agua dulce y terraza-solárium. </p>
-      <p>En el EcoEspace encontrarás también jacuzzi, gimnasio, baño de vapor y un centro de wellness con diferentes tratamientos y masajes. Todo lo que necesitas para conseguir el máximo bienestar durante tu estancia.</p>
-
-
-      <p>Gracias al servicio de todo incluido podrás disfrutar la gran variedad de sabores tanto del restaurante buffet como de todos los diferentes restaurantes temáticos que el hotel dispone. Si tu estancia es por trabajo o negocio entonces el Hotel Riu Guanacaste será ideal para ti. En el EcoEscape hay cinco salas de conferencias modernas y completamente equipadas para que puedas realizar reuniones o conferencias de forma profesional y sencilla así como varios servicios que podrás solicitar.
-
-        Al estar en un entorno privilegiado, el hotel ofrece para todas las edades, sea en familia, pareja o amigos, una diversidad de actividades de entretenimiento como gimnasia, tenis, tenis de mesa, voleibol, billar, prueba de buceo y equipo de snorkel y en sus bellas playas: windsurf, kayak, velomares y otras actividades acuáticas. También podrás practicar ecoturismo por zonas volcánicas, pesca en las aguas del Pacífico o si eres un apasionado del golf este destino te propone un recorrido de talla mundial tanto por su belleza como por la exigencia del trazado.</p>
-
       <p>Guanacaste es menos tropical, húmeda y exuberante que el resto del país. Sus praderas y bosques secos en ocasiones recuerdan a paisajes de sabana africana. Hacia el interior podrás realizar algunas excursiones para ver a los sabaneros, vaqueros locales montados en sus caballos mientras conducen a sus rebaños, que son auténticas figuras de la cultura popular de este destino. Para más información puedes consultar toda la información útil de Guanacaste.
-
         Descubre las ofertas del EcoEscape y ven a disfrutar de la playa, sol y del distinguido servicio de EcoEscape Hotels.</p>
     </ion-card>
   </ion-col>
