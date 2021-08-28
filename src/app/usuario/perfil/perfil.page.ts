@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Habitacion, Reservacion, User } from 'src/app/app.model';
+import { PrincipalService } from 'src/app/app.service';
 
 @Component({
   selector: 'app-perfil',
@@ -6,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./perfil.page.scss'],
 })
 export class PerfilPage implements OnInit {
+  usuario: User[];
+  habitaciones: Habitacion[];
+  reser: Reservacion[];
 
-  constructor() { }
+  constructor(private principalServicio: PrincipalService) { }
 
   ngOnInit() {
   }
-
+  ionViewWillEnter(){
+    console.log('Entro al will enter');
+    setTimeout(() => {
+      this.habitaciones = this.principalServicio.getAll();
+      this.usuario = this.principalServicio.getLoggedUser();
+    }, 250);
+  }
 }

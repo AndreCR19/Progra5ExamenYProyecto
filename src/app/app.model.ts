@@ -19,6 +19,7 @@ export class Habitacion {
 export interface Reservacion {
   id: string;
   idHabitacion: string;
+  idUser: string;
   dateStart: string;
   dateFinish: string;
 }
@@ -26,6 +27,7 @@ export class Reservacion {
   constructor(
     public id: string,
     public idHabitacion: string,
+    public idUser: string,
     public dateStart: string,
     public dateFinish: string
   ){}
@@ -37,7 +39,7 @@ export interface User {
   lastName: string;
   email: string;
   pass: string;
-  rol: number;
+  rol: string;
 }
 
 export class User {
@@ -47,6 +49,6 @@ export class User {
     public lastName: string,
     public email: string,
     public pass: string,
-    public rol: number
+    public rol: string
   ){}
 }

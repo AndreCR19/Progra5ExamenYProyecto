@@ -8,7 +8,7 @@
     <ion-button [routerLink]="['./perfil']">
       <ion-icon name="person-circle-outline"></ion-icon>
     </ion-button>
-
+    <ion-text *ngFor="let user of usuario"> {{ user.fname }}</ion-text>
   </ion-toolbar>
 </ion-header>
 

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Habitacion, User } from './app.model';
 import { Reservacion } from './app.model';
-import { map } from 'rxjs/operators';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -12,13 +12,17 @@ export class PrincipalService {
     {
       id: '1000001',
       idHabitacion: 'habi1001',
+      idUser: 'asdadad',
       dateStart: '15-08-2021',
       dateFinish: '19-08-2021'
     }
   ];
-  private user: User[] = [];
+  private users: User[] = [];
+  private usuarioLogged: User[] = [];
+
+
   constructor(
-    private httpClient: HttpClient,
+    private httpClient: HttpClient
   ) {
     this.httpClient.get<{ [key: string]: Habitacion}>('https://progra5eyp-default-rtdb.firebaseio.com/rooms.json')
     .subscribe(
@@ -49,11 +53,13 @@ export class PrincipalService {
             reservaciones.push(new Reservacion(
               key,
               restData[key].idHabitacion,
+              restData[key].idUser,
               restData[key].dateStart,
               restData[key].dateFinish
             ));
           }
         }
+        this.reservaciones = reservaciones;
       }
     );
 
@@ -61,10 +67,10 @@ export class PrincipalService {
     this.httpClient.get<{ [key: string]: User}>('https://progra5eyp-default-rtdb.firebaseio.com/users.json')
     .subscribe(
       restData => {
-        const users = [];
+        const usuarios = [];
         for ( const key in restData) {
           if(restData.hasOwnProperty(key)) {
-            users.push(new User(
+            usuarios.push(new User(
               key,
               restData[key].fname,
               restData[key].lastName,
@@ -74,6 +80,7 @@ export class PrincipalService {
             ));
           }
         }
+        this.users = usuarios;
       }
     );
   }
@@ -93,8 +100,35 @@ export class PrincipalService {
   }
 
   getAllUser(){
-    return [...this.user];
+    console.log('entra');
+    return [...this.users];
   }
+
+  getUser(email: string){
+    return {...this.users.find(
+      usuario => email === usuario.email
+    )};
+  }
+
+  setUser(id: string, fname: string, lastName: string, email: string, pass: string, rol: string){
+    const newUser = new User(
+      id = id,
+      fname = fname,
+      lastName = lastName,
+      email = email,
+      pass = pass,
+      rol = rol
+    );
+    this.usuarioLogged.push(newUser);
+    console.log('prueba1234');
+    console.log(this.usuarioLogged);
+  }
+
+  getLoggedUser(){
+    console.log('entra');
+    return [...this.usuarioLogged];
+  }
+
 
   addHabitacion(id: string, title: string, descrip: string, price: number, status: string, perRoom: number){
     const newHabi = new Habitacion(
@@ -143,7 +177,7 @@ export class PrincipalService {
   }
 
 
-  addUser(id: string, fname: string, lastName: string, email: string, pass: string, rol: number){
+  addUser(id: string, fname: string, lastName: string, email: string, pass: string, rol: string){
     const newUser = new User(
       id,
       fname,
@@ -163,7 +197,7 @@ export class PrincipalService {
       },
     );
 
-    this.user.push(newUser);
-    console.log(this.user);
+    this.users.push(newUser);
+    console.log(this.users);
   }
 }

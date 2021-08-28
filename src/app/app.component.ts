@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import { Component } from '@angular/core';
 
 @Component({

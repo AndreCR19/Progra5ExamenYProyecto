@@ -5,10 +5,10 @@
 </ion-header>
 
 <ion-content>
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+  <form [formGroup]="loginForm" (ngSubmit)="loginAttempt()" novalidate>
     <ion-item>
-      <ion-label position="floating">Username</ion-label>
-      <ion-input formControlName="user" type="text"></ion-input>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input formControlName="email" type="text"></ion-input>
     </ion-item>
 
     <ion-item>

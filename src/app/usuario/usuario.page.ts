@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Habitacion, Reservacion } from '../app.model';
+import { Habitacion, Reservacion, User } from '../app.model';
 import { PrincipalService } from '../app.service';
 
 @Component({
@@ -10,6 +10,7 @@ import { PrincipalService } from '../app.service';
 export class UsuarioPage implements OnInit {
   habitaciones: Habitacion[];
   reser: Reservacion[];
+  usuario: User[];
   constructor(private principalServicio: PrincipalService) { }
 
   ngOnInit() {
@@ -19,6 +20,7 @@ export class UsuarioPage implements OnInit {
     console.log('Entro al will enter');
     setTimeout(() => {
       this.habitaciones = this.principalServicio.getAll();
+      this.usuario = this.principalServicio.getLoggedUser();
     }, 250);
   }
 }

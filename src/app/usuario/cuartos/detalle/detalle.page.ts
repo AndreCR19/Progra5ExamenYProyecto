@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterEvent } from '@angular/router';
-import { Habitacion } from 'src/app/app.model';
+import { Habitacion, Reservacion, User } from 'src/app/app.model';
 import { PrincipalService } from 'src/app/app.service';
 
 
@@ -11,6 +11,8 @@ import { PrincipalService } from 'src/app/app.service';
 })
 export class DetallePage implements OnInit {
   habitacion: Habitacion;
+  usuario: User[];
+  reservas: Reservacion[];
  /*  active = '';
 
   nav = [
@@ -42,13 +44,14 @@ export class DetallePage implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe(
-      paramMap => {
+      async paramMap => {
         if(!paramMap.has('habiID')){
           // No existe el parametro redirecciono
           return;
         }
         const habitacionId = paramMap.get('habiID');
         this.habitacion = this.principalServicio.getHabitacion(habitacionId);
+        this.usuario = this.principalServicio.getLoggedUser();
       }
     );
   }
