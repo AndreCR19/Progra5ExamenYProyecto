@@ -36,7 +36,7 @@ export class PrincipalService {
       }
     );
 
-    this.httpClient.get<{ [key: string]: Reservacion}>('https://progra5eyp-default-rtdb.firebaseio.com/reservations.json')
+    this.httpClient.get<{ [key: string]: Reservacion}>('https://progra5eyp-default-rtdb.firebaseio.com/reservas.json')
     .subscribe(
       restData => {
         const reservaciones = [];
@@ -88,6 +88,7 @@ export class PrincipalService {
   }
 
   getAllReser(){
+    console.log(this.reservaciones);
     return [...this.reservaciones];
   }
 

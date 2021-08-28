@@ -22,6 +22,7 @@ export class PerfilPage implements OnInit {
       this.habitaciones = this.principalServicio.getAll();
       this.usuario = this.principalServicio.getLoggedUser();
       this.reser = this.principalServicio.getAllReser();
-    }, 250);
+      console.log(this.reser);
+    }, 550);
   }
 }
