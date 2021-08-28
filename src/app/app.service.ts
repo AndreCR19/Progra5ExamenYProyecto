@@ -91,6 +91,12 @@ export class PrincipalService {
     return [...this.reservaciones];
   }
 
+  getReserUser(idUser: string){
+    return {...this.reservaciones.find(
+      reservacion => idUser === reservacion.idUser
+    )};
+  }
+
   getAllUser(){
     console.log('entra');
     return [...this.users];
