@@ -5,29 +5,34 @@
 </ion-header>
 
 <ion-content>
-  <form [formGroup]="loginForm" (ngSubmit)="loginAttempt()" novalidate>
-    <ion-item>
-      <ion-label position="floating">Email</ion-label>
-      <ion-input formControlName="email" type="text"></ion-input>
-  <ion-row>
-    <ion-col  size-md="3" offset-sm="5">
-  <h4> <ion-icon name="person-circle-outline"></ion-icon> Iniciar sesion</h4>
-</ion-col>
-</ion-row>
   <ion-card>
-    <ion-row class="ion-align-self-center">
-      <ion-col  size-md="3" offset-sm="5">
-    <ion-item>
-      <ion-label position="floating">Contraseña</ion-label>
-      <ion-input formControlName="pass" type="text"></ion-input>
-    </ion-item>
-    <ion-row>
-      <ion-col>
-        <ion-button type='submit' color="dark" expand="block"> Submit</ion-button>
-      </ion-col>
-    </ion-row>
-  </form>
-</ion-col>
-    </ion-row>
-</ion-card>
+    <form [formGroup]="loginForm" (ngSubmit)="loginAttempt()" novalidate>
+      <ion-row>
+        <ion-col  size-md="3" offset-sm="5">
+          <h4> <ion-icon name="person-circle-outline"></ion-icon> Iniciar sesion</h4>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-md="3" offset-sm="5">
+          <ion-item>
+            <ion-label position="floating">Email</ion-label>
+            <ion-input formControlName="email" type="text"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-align-self-center">
+        <ion-col  size-md="3" offset-sm="5">
+          <ion-item>
+            <ion-label position="floating">Contraseña</ion-label>
+            <ion-input formControlName="pass" type="text"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-align-self-center">
+        <ion-col>
+          <ion-button type='submit' color="dark" expand="block"> Submit</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-card>
 </ion-content>
