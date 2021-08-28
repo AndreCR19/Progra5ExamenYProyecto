@@ -21,6 +21,7 @@ export class PerfilPage implements OnInit {
     setTimeout(() => {
       this.habitaciones = this.principalServicio.getAll();
       this.usuario = this.principalServicio.getLoggedUser();
+      this.reser = this.principalServicio.getAllReser();
     }, 250);
   }
 }

@@ -27,7 +27,37 @@
         </ion-col>
       </ion-row>
     </ion-card>
+    <form [formGroup]="formReserva" (ngSubmit)="addReser()" novalidate>
+      <ion-card size-md="3" offset-sm="5">
+        <ion-row class="ion-align-self-center">
+          <ion-col size-md="3" offset-sm="5">
+
+              <ion-item>
+                <ion-label>DD-MM-YYYY</ion-label>
+                <ion-input formControlName="dateStart" type="text" autocomplete autocorrect >
+                  <!-- <ion-datetime displayFormat="DD MM YY" placeholder="Seleccione fecha de inicio"></ion-datetime> -->
+                </ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label>DD-MM-YYY</ion-label>
+                <ion-input formControlName="dateFinish" type="text" autocomplete autocorrect >
+                  <!-- <ion-datetime displayFormat="DD MM YY" placeholder="Seleccione fecha de inicio"></ion-datetime> -->
+                </ion-input>
+              </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button type="submit" color="dark" expand="block" outline>Reservar</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </form>
   </ion-grid>
+
+
+
+
 </ion-content>
 
 
