@@ -8,15 +8,7 @@ import { Reservacion } from './app.model';
 })
 export class PrincipalService {
   private habitaciones: Habitacion[] = [];
-  private reservaciones: Reservacion[] = [
-    {
-      id: '1000001',
-      idHabitacion: 'habi1001',
-      idUser: 'asdadad',
-      dateStart: '15-08-2021',
-      dateFinish: '19-08-2021'
-    }
-  ];
+  private reservaciones: Reservacion[] = [];
   private users: User[] = [];
   private usuarioLogged: User[] = [];
 
@@ -199,5 +191,28 @@ export class PrincipalService {
 
     this.users.push(newUser);
     console.log(this.users);
+  }
+
+  addReserva(id: string, idHabitacion: string, idUser: string, dateStart: string, dateFinish: string){
+    const newReser = new Reservacion(
+      id,
+      idHabitacion,
+      idUser,
+      dateStart,
+      dateFinish
+    );
+    this.httpClient.post<{name: string}>('https://progra5eyp-default-rtdb.firebaseio.com/reservas.json',
+    {
+      ...newReser,
+      id: null
+    })
+    .subscribe(
+      (restData) => {
+        newReser.id = restData.name;
+      },
+    );
+
+    this.reservaciones.push(newReser);
+    console.log(this.reservaciones);
   }
 }
