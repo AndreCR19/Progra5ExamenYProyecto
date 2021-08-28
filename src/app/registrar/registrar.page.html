@@ -32,6 +32,12 @@
           <ion-button type="submit" color="dark" expand="block" outline>Submit</ion-button>
         </ion-col>
       </ion-row>
+      <ion-row *ngIf="
+          !formRegistro.get('pass').valid">
+          <ion-col  size-sm="3" offset-sm="5">
+            <p> ***La clave es de 8 caracteres o más</p>
+          </ion-col>
+      </ion-row>
     </form>
   </ion-card>
 </ion-content>

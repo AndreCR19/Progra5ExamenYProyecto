@@ -36,6 +36,12 @@
           </ion-button>
         </ion-col>
       </ion-row>
+      <ion-row *ngIf="
+          !loginForm.get('pass').valid">
+          <ion-col  size-sm="3" offset-sm="5">
+            <p> ***La clave es de 8 caracteres  o más</p>
+          </ion-col>
+      </ion-row>
     </form>
   </ion-card>
 </ion-content>

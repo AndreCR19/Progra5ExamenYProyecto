@@ -35,11 +35,11 @@
       <ion-row *ngIf="res.idUser === user.id">
         <ion-col *ngFor='let habi of habitaciones'>
           <ion-row *ngIf="habi.id === res.idHabitacion">
-            <ion-text> Reserva</ion-text>
-            <ion-text> De la Fecha: {{res.dateStart}} </ion-text>
-            <ion-text> Hasta : {{res.dateFinish}} </ion-text>
-            <ion-text> {{habi.title}} </ion-text>
-            <ion-text> {{habi.descrip}} </ion-text>
+            <ion-text>   Reserva</ion-text>
+            <ion-text>   De la Fecha: {{res.dateStart}} </ion-text>
+            <ion-text>   Hasta : {{res.dateFinish}} </ion-text>
+            <ion-text>   {{habi.title}} </ion-text>
+            <ion-text>   {{habi.descrip}} </ion-text>
           </ion-row>
         </ion-col>
       </ion-row>
